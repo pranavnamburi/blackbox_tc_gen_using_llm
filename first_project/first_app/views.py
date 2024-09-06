@@ -9,7 +9,7 @@ import boto3
 
 
 client = OpenAI(
-  api_key="sk-None-OoucK5PYM9opQRytgDnMT3BlbkFJR6n4PwWCEii8Xf2kh7zH", 
+  api_key="OpenAI_API_KEY", 
 )
 
 def default_view(request):
