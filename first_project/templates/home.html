@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home Page</title>
+    <script>
+        function updateTime() {
+            const now = new Date();
+            const formattedTime = now.toLocaleString();
+            document.getElementById('current-time').innerHTML = formattedTime;
+        }
+        setInterval(updateTime, 1000);
+    </script>
+    <style>
+        header {
+            background-color: #5c6bc0;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #5c6bc0;
+        }
+
+        nav li {
+            float: left;
+        }
+
+        nav li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        nav li a:hover {
+            background-color: #3949ab;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        footer {
+            background-color: #5c6bc0;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            bottom: 0px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<nav>
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="http://localhost:8000/accounts/logout">Logout</a></li>
+    </ul>
+</nav>
+<section>
+    <h1>Welcome to My Website, {{user.username}}</h1>
+    <p>This is a simple website built using Django.</p>
+</section>
+
+<section>
+
+</section>
+
+<section style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+    <h2 style="color: #333; text-align: center;">Upload Files with Context</h2>
+    <form action="/upload" method="post" enctype="multipart/form-data" style="max-width: 500px; margin: auto; padding: 20px; background: white; border-radius: 8px;">
+        {% csrf_token %}
+        <div style="margin-bottom: 12px;">
+            <label for="context" style="display: block; margin-bottom: 5px;">Context (optional):</label>
+            <textarea id="context" name="context" placeholder="Enter any relevant information here..." style="width: 100%; height: 100px; padding: 8px; border: 1px solid #ccc; border-radius: 4px;"></textarea>
+        </div>
+        <div style="margin-bottom: 12px;">
+            <input type="file" name="files" accept="image/png, image/jpeg" multiple style="display: block; width: 100%; margin-top: 5px;">
+        </div>
+        <button type="submit" style="background-color: #007bff; color: white; border: none; padding: 10px 20px; text-align: center; display: block; width: 100%; border-radius: 4px; cursor: pointer;">
+            Upload
+        </button>
+    </form>
+</section>
+
+
+<footer>
+    <p>&copy; 2024 My Website. All rights reserved.</p>
+    <p id="current-time"></p>
+</footer>
+</body>
+</html>

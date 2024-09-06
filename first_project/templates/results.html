@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    Hey There, {{user.username}}! Your file has been uploaded successfully and results are below.
+    <br>
+    <br>
+
+    Results: {{result_text}}
+
+    
+
+{% csrf_token %}
+</head>
+<body>
+    <button onclick="history.back()">Go Back</button>
+</body>
+</html>
